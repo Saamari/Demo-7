@@ -12,24 +12,38 @@ namespace Numbers
         double d;
         static void Main(string[] args)
         {
-            string line = null;
-            System.IO.StreamWriter outputFile = new System.IO.StreamWriter(@"d:\T2");
+            int n;
+            double d;
+            bool integers = true;
+            bool doubles = true;
+            string lines;
 
-            // kysytään käyttäjältä rivejä
+ 
+            string line = null;
+            System.IO.StreamWriter outputIntegers  = new System.IO.StreamWriter(@"d:\INT");
+            System.IO.StreamWriter outputDouble = new System.IO.StreamWriter(@"d:\Double");
+
             do
             {
                 Console.Write("Give A number");
                 line = Console.ReadLine();
 
-                
+                if( integers)
+                {
+                    
+                }
 
-
-
-                outputFile.WriteLine(line);
+                outputIntegers.WriteLine(line);
+                outputDouble.WriteLine(line);
             } while (line.Length != 0);
             //suljetaan tiedosto
-            outputFile.Close();
-            
+            outputIntegers.Close();
+            outputDouble.Close();
+
+
+
+
+
 
 
         }
