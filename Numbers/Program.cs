@@ -12,11 +12,11 @@ namespace Numbers
         double d;
         static void Main(string[] args)
         {
-            int n;
+           /* int n;
             double d;
             bool integers = true;
             bool doubles = true;
-            string lines;
+            string lines;*/
 
  
             string line = null;
@@ -28,11 +28,7 @@ namespace Numbers
                 Console.Write("Give A number");
                 line = Console.ReadLine();
 
-                if( integers)
-                {
-                    
-                }
-
+                
                 outputIntegers.WriteLine(line);
                 outputDouble.WriteLine(line);
             } while (line.Length != 0);
