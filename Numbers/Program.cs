@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,40 +9,59 @@ namespace Numbers
 {
     class Program
     {
-        int k;
-        double d;
+
+
         static void Main(string[] args)
         {
-           /* int n;
-            double d;
-            bool integers = true;
-            bool doubles = true;
-            string lines;*/
 
- 
+
+
             string line = null;
-            System.IO.StreamWriter outputIntegers  = new System.IO.StreamWriter(@"d:\INT");
-            System.IO.StreamWriter outputDouble = new System.IO.StreamWriter(@"d:\Double");
+            int integer;
+            double desim;
+            System.IO.StreamWriter outputIntegers = new System.IO.StreamWriter(@"d:\INT.txt");
+            System.IO.StreamWriter outputDouble = new System.IO.StreamWriter(@"d:\Double.txt");
 
             do
             {
-                Console.Write("Give A number");
+                Console.WriteLine("Give A number");
                 line = Console.ReadLine();
 
-                
-                outputIntegers.WriteLine(line);
-                outputDouble.WriteLine(line);
+                bool parsed = int.TryParse(line, out integer);
+
+                if (!parsed)
+                {
+                    double.TryParse(line, out desim);
+                    outputDouble.WriteLine(desim);
+                }
+
+                else
+                {
+                    outputIntegers.WriteLine(integer);
+                }
+
+              
             } while (line.Length != 0);
             //suljetaan tiedosto
             outputIntegers.Close();
             outputDouble.Close();
 
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"d:\INT.txt"))
+                using (StreamReader sr1 = new StreamReader(@"d:\Double.txt"))
+                {
+                    String line2 = sr.ReadToEnd();
+                    String line3 = sr1.ReadToEnd();
+                    Console.WriteLine("Integers " + line2);
+                    Console.WriteLine("Double " + line3);
+                }
 
-
-
-
-
-
-        }
+             }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR");
+            }
+    }
     }
 }

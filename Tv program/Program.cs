@@ -24,10 +24,10 @@ namespace Tv_program
 
             writeMultipleStream.Close();
 
-            Stream opeMultipleStream = new FileStream("MyTvshows.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            List<Television> readTv = (List<Television>)formatter.Deserialize(opeMultipleStream);
+            Stream openMultipleStream = new FileStream("MyTvshows.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Television> readTv = (List<Television>)formatter.Deserialize(openMultipleStream);
 
-            opeMultipleStream.Close();
+            openMultipleStream.Close();
 
             foreach(Television t in readTv)
             {
